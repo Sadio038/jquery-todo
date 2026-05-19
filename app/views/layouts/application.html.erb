@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Jquery Todo" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  #tab-titles { list-style: none; padding: 0; display: flex; gap: 10px; border-bottom: 2px solid #333; margin-bottom: 20px; }
+  .tab-title { padding: 10px 20px; cursor: pointer; background: #f0f0f0; border-radius: 5px 5px 0 0; font-weight: bold; }
+  .tab-title.active { background: #333; color: white; }
+  .tab-content ul { list-style: none; padding: 0; }
+  .tab-content ul li { padding: 10px; border-bottom: 1px solid #eee; font-size: 16px; }
+  .tab-content ul li:before { content: "✓ "; color: green; }
+</style>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <%= javascript_include_tag "application", defer: true %>
+  </head>
+  <body>
+    <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.tab-content').hide();
+        $('.tab-content.active').show();
+
+        $('.tab-title').click(function() {
+          let index = $(this).data('index');
+          $('.tab-title').removeClass('active');
+          $('.tab-content').hide();
+          $(this).addClass('active');
+          $('#tab-' + index).show();
+        });
+      });
+    </script>
+  </body>
+</html>

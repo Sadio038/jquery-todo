@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h1>Ma Todo List</h1>
+
+  <div id="tabs">
+    <ul id="tab-titles">
+      <% @lists.each_with_index do |list, index| %>
+        <li class="tab-title <%= 'active' if index == 0 %>" data-index="<%= index %>">
+          <%= list.name %>
+        </li>
+      <% end %>
+    </ul>
+
+    <% @lists.each_with_index do |list, index| %>
+      <div class="tab-content <%= 'active' if index == 0 %>" id="tab-<%= index %>">
+        <ul>
+          <% list.items.each do |item| %>
+            <li><%= item.content %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('.tab-content').hide();
+    $('.tab-content.active').show();
+
+    $('.tab-title').click(function() {
+      let index = $(this).data('index');
+      $('.tab-title').removeClass('active');
+      $('.tab-content').hide();
+      $(this).addClass('active');
+      $('#tab-' + index).show();
+    });
+  });
+</script>

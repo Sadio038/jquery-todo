@@ -1,0 +1,19 @@
+current directory: /home/sadio/Documents/ETP4A/jquery-todo/vendor/bundle/ruby/3.2.0/gems/debug-1.11.1/ext/debug
+/usr/bin/ruby3.2 -I/usr/lib/ruby/vendor_ruby extconf.rb
+creating Makefile
+
+current directory: /home/sadio/Documents/ETP4A/jquery-todo/vendor/bundle/ruby/3.2.0/gems/debug-1.11.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260519-18670-tfbo5h sitelibdir\=./.gem.20260519-18670-tfbo5h clean
+
+current directory: /home/sadio/Documents/ETP4A/jquery-todo/vendor/bundle/ruby/3.2.0/gems/debug-1.11.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260519-18670-tfbo5h sitelibdir\=./.gem.20260519-18670-tfbo5h
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/sadio/Documents/ETP4A/jquery-todo/vendor/bundle/ruby/3.2.0/gems/debug-1.11.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260519-18670-tfbo5h sitelibdir\=./.gem.20260519-18670-tfbo5h install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20260519-18670-tfbo5h/debug
+
+current directory: /home/sadio/Documents/ETP4A/jquery-todo/vendor/bundle/ruby/3.2.0/gems/debug-1.11.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260519-18670-tfbo5h sitelibdir\=./.gem.20260519-18670-tfbo5h clean
