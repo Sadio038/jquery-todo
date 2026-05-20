@@ -1,0 +1,4 @@
+document.getElementById("emails-list").insertAdjacentHTML(
+  "afterbegin",
+  "<%= escape_javascript(render @email) %>"
+);

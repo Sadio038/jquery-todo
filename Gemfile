@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 gem "jquery-rails"
 gem "sprockets-rails"
+gem "faker"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.3", ">= 7.2.3.1"

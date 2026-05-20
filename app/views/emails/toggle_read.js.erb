@@ -1,0 +1,12 @@
+var emailItem = document.getElementById("email-<%= @email.id %>");
+var btn = document.getElementById("btn-unread");
+
+<% if @email.read %>
+  emailItem.style.backgroundColor = "#e8f4e8";
+  emailItem.style.fontWeight = "normal";
+  if (btn) btn.textContent = "Marquer comme non-lu";
+<% else %>
+  emailItem.style.backgroundColor = "";
+  emailItem.style.fontWeight = "bold";
+  if (btn) btn.textContent = "Marquer comme lu";
+<% end %>

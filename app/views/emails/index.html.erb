@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <h1 class="mb-4">📧 Gmail-like</h1>
+
+  <!-- Bouton recevoir un email -->
+  <%= link_to "+ Recevoir un email", emails_path, method: :post, remote: true, class: "btn btn-primary mb-3" %>
+
+  <div class="row">
+    <!-- Colonne gauche : liste des emails -->
+    <div class="col-md-4">
+      <h5 class="mb-3">Liste des emails</h5>
+      <div id="emails-list">
+        <%= render @emails %>
+      </div>
+    </div>
+
+    <!-- Colonne droite : email sélectionné -->
+    <div class="col-md-8">
+      <h5 class="mb-3">Email sélectionné</h5>
+      <div id="email-show">
+        <p class="text-muted">Clique sur un email pour le lire.</p>
+      </div>
+    </div>
+  </div>
+</div>

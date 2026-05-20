@@ -1,0 +1,26 @@
+document.getElementById("email-show").innerHTML = `
+  <h4><%= escape_javascript(@email.object) %></h4>
+  <p><%= escape_javascript(@email.body) %></p>
+  <hr>
+  <button class="btn btn-danger btn-sm" onclick="deleteEmail(<%= @email.id %>)">Supprimer</button>
+  <button class="btn btn-secondary btn-sm" id="btn-unread" onclick="toggleRead(<%= @email.id %>)">Marquer comme non-lu</button>
+`;
+
+// Marque visuellement comme lu
+var emailItem = document.getElementById("email-<%= @email.id %>");
+emailItem.style.backgroundColor = "#e8f4e8";
+emailItem.style.fontWeight = "normal";
+
+function deleteEmail(id) {
+  fetch('/emails/' + id, {
+    method: 'DELETE',
+    headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content, 'Accept': 'text/javascript' }
+  }).then(r => r.text()).then(js => eval(js));
+}
+
+function toggleRead(id) {
+  fetch('/emails/' + id + '/toggle_read', {
+    method: 'PATCH',
+    headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content, 'Accept': 'text/javascript' }
+  }).then(r => r.text()).then(js => eval(js));
+}

@@ -16,3 +16,13 @@ list2.items.create(content: "Apprendre jQuery")
 list3.items.create(content: "Riz")
 list3.items.create(content: "Poisson")
 list3.items.create(content: "Légumes")
+
+# Emails
+Email.destroy_all
+
+10.times do
+  Email.create(
+    object: Faker::Lorem.sentence(word_count: 5),
+    body: Faker::Lorem.paragraph(sentence_count: 5)
+  )
+end
